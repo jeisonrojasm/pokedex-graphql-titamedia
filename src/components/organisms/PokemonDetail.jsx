@@ -1,5 +1,10 @@
 import { usePokemonDetail } from '../../hooks/usePokemonDetail'
 import { mapPokemonDetail } from '../../utils/mapPokemonDetail'
+
+import { PokemonAbout } from '../molecules/PokemonAbout'
+import { PokemonDetailHeader } from '../molecules/PokemonDetailHeader'
+import { PokemonDetailImageNavigator } from '../molecules/PokemonDetailImageNavigator'
+import { PokemonDetailTypes } from '../molecules/PokemonDetailTypes'
 import { PokemonStats } from '../molecules/PokemonStats'
 
 export const PokemonDetail = ({ name }) => {
@@ -13,57 +18,28 @@ export const PokemonDetail = ({ name }) => {
 
   return (
     <div style={{ backgroundColor: data.color }}>
-      <div>
-        <button>{`<-`}</button>
-        <h2>{data.name}</h2>
-        <span>{`#${data.id}`}</span>
-      </div>
+      <PokemonDetailHeader
+        name={data.name}
+        id={data.id}
+        onBack={() => { }}
+      />
 
-      <div>
-        <button>{`<`}</button>
-        <img src={data.image} alt={data.name} />
-        <button>{`>`}</button>
-      </div>
+      <PokemonDetailImageNavigator
+        image={data.image}
+        name={data.name}
+        onPrev={() => { }}
+        onNext={() => { }}
+      />
 
       <div style={{ backgroundColor: 'white' }}>
-        <div>
-          {
-            data.types.map(type => (
-              <span
-                key={type}
-              >
-                {type}
-              </span>
-            ))
-          }
-        </div>
+        <PokemonDetailTypes types={data.types} />
 
-        <h3>About</h3>
-
-        <div>
-          <div>
-            <div>
-              <span>{data.weight} kg</span>
-            </div>
-            <span>Weight</span>
-          </div>
-          <div>
-            <div>
-              <span>{data.height} m</span>
-            </div>
-            <span>Height</span>
-          </div>
-          <div>
-            <span>
-              {
-                data.moves.join('-')
-              }
-            </span>
-            <span>Moves</span>
-          </div>
-        </div>
-
-        <p>{data.description}</p>
+        <PokemonAbout
+          weight={data.weight}
+          height={data.height}
+          moves={data.moves}
+          description={data.description}
+        />
 
         <PokemonStats stats={data.stats} color={data.color} />
       </div>
