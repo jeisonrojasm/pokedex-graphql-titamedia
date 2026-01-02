@@ -1,8 +1,9 @@
+import { Text } from '../atoms/Text'
 import { PokemonStatItem } from './PokemonStatItem'
 
 export const PokemonStats = ({ stats, color }) => (
   <>
-    <h3>Base Stats</h3>
+    <Text as='h3'>Base Stats</Text>
     <div>
       {Object.entries(stats).map(([name, value]) => (
         <PokemonStatItem

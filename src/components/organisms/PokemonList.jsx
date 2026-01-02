@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { usePokemons } from '../../hooks/usePokemons'
 import { PokemonCard } from '../molecules/PokemonCard'
+import { Text } from '../atoms/Text'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
 
   const [filter, setFilter] = useState('')
 
-  if (loading) return <p>Cargando...</p>
-  if (error) return <p>Error al cargar Pokémon</p>
+  if (loading) return <Text as='p'>Cargando...</Text>
+  if (error) return <Text as='p'>Error al cargar Pokémon</Text>
 
   const filtered = filter
     ? pokemons.filter((p) =>

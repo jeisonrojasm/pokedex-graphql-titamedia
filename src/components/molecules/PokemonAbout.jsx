@@ -1,3 +1,8 @@
+import { Image } from '../atoms/Image'
+import { Text } from '../atoms/Text'
+import icon_weight from '../../assets/icons/icon-weight.svg'
+import icon_height from '../../assets/icons/icon-height.svg'
+
 export const PokemonAbout = ({
   weight,
   height,
@@ -5,25 +10,31 @@ export const PokemonAbout = ({
   description
 }) => (
   <>
-    <h3>About</h3>
+    <Text as='h3'>About</Text>
 
     <div>
       <div>
-        <span>{weight} kg</span>
-        <span>Weight</span>
+        <div>
+          <Image src={icon_weight} alt="Weight icon" />
+          <Text>{weight} kg</Text>
+        </div>
+        <Text>Weight</Text>
       </div>
 
       <div>
-        <span>{height} m</span>
-        <span>Height</span>
+        <div>
+          <Image src={icon_height} alt="Height icon" />
+          <Text>{height} m</Text>
+        </div>
+        <Text>Height</Text>
       </div>
 
       <div>
-        <span>{moves.join('-')}</span>
-        <span>Moves</span>
+        <Text>{moves.join('-')}</Text>
+        <Text>Moves</Text>
       </div>
     </div>
 
-    <p>{description}</p>
+    <Text as='p'>{description}</Text>
   </>
 )
