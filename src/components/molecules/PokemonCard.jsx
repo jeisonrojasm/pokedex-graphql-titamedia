@@ -1,7 +1,7 @@
 import { capitalize } from '../../utils/capitalize'
 import { Text } from '../atoms/Text'
 
-export const PokemonCard = ({ pokemon, onSelect }) => {
+export const PokemonCard = ({ pokemon, onSelect = () => { } }) => {
   const srcImg = pokemon.pokemon_v2_pokemonsprites[0]?.sprites?.other?.home?.front_default
 
   return (

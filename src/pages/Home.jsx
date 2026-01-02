@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FavoritesList } from '../components/organisms/FavoritesList'
 import { PokemonDetail } from '../components/organisms/PokemonDetail'
 import { PokemonList } from '../components/organisms/PokemonList'
 
@@ -9,6 +10,7 @@ export const Home = () => {
     <div>
       <PokemonList onSelect={setSelectedPokemon} />
       <PokemonDetail name={selectedPokemon} />
+      <FavoritesList />
     </div>
   )
 }
