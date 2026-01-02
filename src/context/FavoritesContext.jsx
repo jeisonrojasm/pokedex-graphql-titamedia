@@ -4,12 +4,17 @@ export const FavoritesContext = createContext()
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(true)
+
 
   useEffect(() => {
     const stored = localStorage.getItem('favorites')
     if (stored) {
       setFavorites(JSON.parse(stored))
     }
+    setLoading(false)
+    setError(false)
   }, [])
 
   const addFavorite = (pokemon) => {
@@ -28,7 +33,7 @@ export const FavoritesProvider = ({ children }) => {
 
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}
+      value={{ favorites, addFavorite, removeFavorite, loading, error }}
     >
       {children}
     </FavoritesContext.Provider>
