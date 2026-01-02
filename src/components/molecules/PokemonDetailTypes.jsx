@@ -1,9 +1,9 @@
-import { Badge } from '../atoms/Badge'
+import { Text } from '../atoms/Text'
 
 export const PokemonDetailTypes = ({ types }) => (
   <div>
     {types.map(type => (
-      <Badge key={type}>{type}</Badge>
+      <Text key={type}>{type}</Text>
     ))}
   </div>
 )
