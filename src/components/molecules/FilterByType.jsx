@@ -21,7 +21,7 @@ export const FilterByType = ({
         onChange={(e) => onSearchChange(e.target.value)}
       />
 
-      <div>
+      <div className="filter-by-type__filters">
         <div className="filter-by-type__button">
           <Image
             className="filter-by-type__button--img"
@@ -31,12 +31,36 @@ export const FilterByType = ({
         </div>
 
         <div className="filter-by-type__pop-up">
-          <Text as="label">Sort by:</Text>
+          <Text
+            className="filter-by-type__pop-up--title"
+            as="label"
+          >
+            Sort by:
+          </Text>
 
-          <select value={value} onChange={(e) => onChange(e.target.value)}>
-            <option value="id">Number</option>
-            <option value="name">Name</option>
-          </select>
+          <div className="filter-by-type__options">
+            <label className="filter-by-type__option">
+              <input
+                type="radio"
+                name="sortBy"
+                value="id"
+                checked={value === 'id'}
+                onChange={(e) => onChange(e.target.value)}
+              />
+              Number
+            </label>
+
+            <label className="filter-by-type__option">
+              <input
+                type="radio"
+                name="sortBy"
+                value="name"
+                checked={value === 'name'}
+                onChange={(e) => onChange(e.target.value)}
+              />
+              Name
+            </label>
+          </div>
         </div>
       </div>
     </div>
