@@ -4,7 +4,6 @@ import { mapPokemonDetail } from '../../utils/mapPokemonDetail'
 
 import { Button } from '../atoms/Button'
 import { Image } from '../atoms/Image'
-import { Text } from '../atoms/Text'
 import { PokemonAbout } from '../molecules/PokemonAbout'
 import { PokemonDetailHeader } from '../molecules/PokemonDetailHeader'
 import { PokemonDetailImageNavigator } from '../molecules/PokemonDetailImageNavigator'
@@ -13,13 +12,17 @@ import { PokemonStats } from '../molecules/PokemonStats'
 
 import icon_star_filled from '../../assets/icons/icon-star-filled.svg'
 import icon_star from '../../assets/icons/icon-star.svg'
+import { Warn } from '../molecules/Warn'
+import { useParams } from 'react-router-dom'
 
-export const PokemonDetail = ({ name }) => {
+export const PokemonDetail = () => {
+  const { name } = useParams()
+
   const { pokemon, loading, error } = usePokemonDetail(name)
   const { favorites, addFavorite, removeFavorite } = useFavorites()
 
-  if (loading) return <Text as='p'>Cargando detalle...</Text>
-  if (error) return <Text as='p'>Error</Text>
+  if (loading) return <Warn text='Cargando detalle...' />
+  if (error) return <Warn text='Error al cargar detalle' />
   if (!pokemon) return null
 
   const data = mapPokemonDetail(pokemon)
