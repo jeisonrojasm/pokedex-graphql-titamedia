@@ -46,6 +46,7 @@ export const FilterByType = ({
         placeholder="Search"
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
+        onCloseClick={() => onSearchChange('')}
       />
 
       <div

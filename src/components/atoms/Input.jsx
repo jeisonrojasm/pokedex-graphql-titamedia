@@ -4,7 +4,7 @@ import icon_close from '../../assets/icons/icon-close.svg'
 
 import './Input.css'
 
-export const Input = ({ value, onChange, placeholder }) => {
+export const Input = ({ value, onChange, placeholder, onCloseClick }) => {
   return (
     <div className="input">
       <Image className="input__img" src={icon_search} alt="Icono de búsqueda" />
@@ -14,7 +14,11 @@ export const Input = ({ value, onChange, placeholder }) => {
         placeholder={placeholder}
         className="input__input-element"
       />
-      <Image className="input__img" src={icon_close} alt="Icono de cierre" />
+      {
+        value.length >= 3 && (
+          <Image className="input__img" src={icon_close} alt="Icono de cierre" onClick={onCloseClick} />
+        )
+      }
     </div>
   )
 }
