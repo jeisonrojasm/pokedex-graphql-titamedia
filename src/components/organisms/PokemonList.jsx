@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePokemons } from '../../hooks/usePokemons'
 import { PokemonCard } from '../molecules/PokemonCard'
 import { Text } from '../atoms/Text'
@@ -9,14 +9,35 @@ import { FilterByType } from '../molecules/FilterByType'
 
 import './PokemonList.css'
 
+import { validatePokemonName } from '../../utils/validations'
+
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
 
   const [sort, setSort] = useState('name')
   const [search, setSearch] = useState('')
 
+  const [searchError, setSearchError] = useState(null)
+
+  useEffect(() => {
+    if (!search) {
+      setSearchError(null)
+      return
+    }
+
+    if (sort === 'name') {
+      const error = validatePokemonName(search)
+      setSearchError(error)
+    } else {
+      setSearchError(null)
+    }
+  }, [search, sort])
+
+
   const filteredAndSorted = useMemo(() => {
     if (!pokemons) return []
+
+    if (searchError) return pokemons
 
     const filtered = pokemons.filter(pokemon => {
       if (!search) return true
@@ -39,8 +60,7 @@ export const PokemonList = ({ onSelect }) => {
       if (sort === 'name') return a.name.localeCompare(b.name)
       return 0
     })
-  }, [pokemons, sort, search])
-
+  }, [pokemons, sort, search, searchError])
 
   if (loading) return <Text as='p'>Cargando...</Text>
   if (error) return <Text as='p'>Error al cargar Pokémon</Text>
@@ -59,6 +79,11 @@ export const PokemonList = ({ onSelect }) => {
             onChange={setSort}
             onSearchChange={setSearch}
           />
+          {searchError && (
+            <Text as="p" className="pokemon-list__error">
+              {searchError}
+            </Text>
+          )}
         </div>
       </div>
       <div className="pokemon-list__cards">
