@@ -8,9 +8,9 @@ export const PokemonCard = ({ pokemon, onSelect = () => { } }) => {
 
   return (
     <div onClick={() => onSelect(pokemon.name)} className="pokemon-card">
-      <Text>{`#${pokemon.id}`}</Text>
-      <Text as="h3">{capitalize(pokemon.name)}</Text>
-      <img src={srcImg} alt={`pokemon ${pokemon.name}`} />
+      <Text className="pokemon-card__id">{`#${pokemon.id}`}</Text>
+      <img className="pokemon-card__img" src={srcImg} alt={`pokemon ${pokemon.name}`} />
+      <Text className="pokemon-card__name" as="h3">{capitalize(pokemon.name)}</Text>
     </div>
   )
 }

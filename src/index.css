@@ -1,6 +1,8 @@
 :root {
   --color-1: #DC0A2D;
   --color-2: #FFFFFF;
+  --color-3: #666666;
+  --color-4: #1D1D1D;
 }
 
 @font-face {
@@ -95,6 +97,15 @@ main {
 
 h1 {
   font-size: 2em;
+  margin: 0;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.5em;
   margin: 0;
 }
 

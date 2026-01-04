@@ -1,5 +1,4 @@
-.pokemon-list,
-.pokemon-list__cards {
+.pokemon-list {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -32,4 +31,14 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 2.4rem;
+}
+
+.pokemon-list__cards {
+  background-color: var(--color-2);
+  border-radius: 0.8rem;
+  box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0,0,0,0.51) inset;
+  padding: 2.4rem 1.2rem 1.2rem 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
 }
