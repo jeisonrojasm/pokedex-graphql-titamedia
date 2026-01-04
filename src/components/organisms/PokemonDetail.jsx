@@ -13,10 +13,13 @@ import { PokemonStats } from '../molecules/PokemonStats'
 import icon_star_filled from '../../assets/icons/icon-star-filled.svg'
 import icon_star from '../../assets/icons/icon-star.svg'
 import { Warn } from '../molecules/Warn'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import './PokemonDetail.css'
 
 export const PokemonDetail = () => {
   const { name } = useParams()
+  const navigate = useNavigate()
 
   const { pokemon, loading, error } = usePokemonDetail(name)
   const { favorites, addFavorite, removeFavorite } = useFavorites()
@@ -40,11 +43,11 @@ export const PokemonDetail = () => {
   }
 
   return (
-    <div style={{ backgroundColor: data.color }}>
+    <div className="pokemon-detail" style={{ backgroundColor: data.color }}>
       <PokemonDetailHeader
         name={data.name}
         id={data.id}
-        onBack={() => { }}
+        onBack={() => navigate('../../')}
       />
 
       <PokemonDetailImageNavigator

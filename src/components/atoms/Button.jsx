@@ -1,5 +1,5 @@
-export const Button = ({ children, onClick, type = 'button' }) => (
-  <button type={type} onClick={onClick}>
+export const Button = ({ children, onClick, type = 'button', className = '' }) => (
+  <button type={type} onClick={onClick} className={className}>
     {children}
   </button>
 )
