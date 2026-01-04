@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { Image } from '../atoms/Image'
 import { Input } from '../atoms/Input'
 import { Text } from '../atoms/Text'
@@ -13,6 +14,32 @@ export const FilterByType = ({
   onChange,
   onSearchChange,
 }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const containerRef = useRef(null)
+
+  const togglePopup = () => {
+    setIsOpen(prev => !prev)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
+
   return (
     <div className="filter-by-type">
       <Input
@@ -21,8 +48,16 @@ export const FilterByType = ({
         onChange={(e) => onSearchChange(e.target.value)}
       />
 
-      <div className="filter-by-type__filters">
-        <div className="filter-by-type__button">
+      <div
+        ref={containerRef}
+        className="filter-by-type__filters"
+      >
+        <div
+          className="filter-by-type__button"
+          onClick={togglePopup}
+          role="button"
+          tabIndex={0}
+        >
           <Image
             className="filter-by-type__button--img"
             src={value === 'name' ? icon_sort : icon_tag}
@@ -30,38 +65,40 @@ export const FilterByType = ({
           />
         </div>
 
-        <div className="filter-by-type__pop-up">
-          <Text
-            className="filter-by-type__pop-up--title"
-            as="label"
-          >
-            Sort by:
-          </Text>
+        {isOpen && (
+          <div className="filter-by-type__pop-up">
+            <Text
+              className="filter-by-type__pop-up--title"
+              as="label"
+            >
+              Sort by:
+            </Text>
 
-          <div className="filter-by-type__options">
-            <label className="filter-by-type__option">
-              <input
-                type="radio"
-                name="sortBy"
-                value="id"
-                checked={value === 'id'}
-                onChange={(e) => onChange(e.target.value)}
-              />
-              Number
-            </label>
+            <div className="filter-by-type__options">
+              <label className="filter-by-type__option">
+                <input
+                  type="radio"
+                  name="sortBy"
+                  value="id"
+                  checked={value === 'id'}
+                  onChange={(e) => onChange(e.target.value)}
+                />
+                Number
+              </label>
 
-            <label className="filter-by-type__option">
-              <input
-                type="radio"
-                name="sortBy"
-                value="name"
-                checked={value === 'name'}
-                onChange={(e) => onChange(e.target.value)}
-              />
-              Name
-            </label>
+              <label className="filter-by-type__option">
+                <input
+                  type="radio"
+                  name="sortBy"
+                  value="name"
+                  checked={value === 'name'}
+                  onChange={(e) => onChange(e.target.value)}
+                />
+                Name
+              </label>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

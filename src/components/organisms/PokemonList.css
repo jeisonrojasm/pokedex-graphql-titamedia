@@ -34,6 +34,7 @@
 }
 
 .pokemon-list__cards {
+  flex: 1;
   background-color: var(--color-2);
   border-radius: 0.8rem;
   box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0,0,0,0.51) inset;
