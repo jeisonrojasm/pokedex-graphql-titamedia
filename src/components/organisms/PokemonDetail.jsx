@@ -13,13 +13,14 @@ import { PokemonStats } from '../molecules/PokemonStats'
 
 import icon_star_filled from '../../assets/icons/icon-star-filled.svg'
 import icon_star from '../../assets/icons/icon-star.svg'
+import { Warn } from '../molecules/Warn'
 
 export const PokemonDetail = ({ name }) => {
   const { pokemon, loading, error } = usePokemonDetail(name)
   const { favorites, addFavorite, removeFavorite } = useFavorites()
 
-  if (loading) return <Text as='p'>Cargando detalle...</Text>
-  if (error) return <Text as='p'>Error</Text>
+  if (loading) return <Warn text='Cargando detalle...' />
+  if (error) return <Warn text='Error al cargar detalle' />
   if (!pokemon) return null
 
   const data = mapPokemonDetail(pokemon)

@@ -10,6 +10,10 @@
   padding: 0.5rem;
 }
 
+.pokemon-card:hover {
+  cursor: pointer;
+}
+
 .pokemon-card__id {
   font-family: 'Poppins', sans-serif;
   color: var(--color-3);

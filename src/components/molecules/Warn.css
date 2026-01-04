@@ -1,0 +1,10 @@
+.warn {
+  background-color: var(--color-1);
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}

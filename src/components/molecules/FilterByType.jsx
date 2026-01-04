@@ -45,7 +45,7 @@ export const FilterByType = ({
       <Input
         placeholder="Search"
         value={search}
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(e) => onSearchChange(e.target.value.trimStart())}
         onCloseClick={() => onSearchChange('')}
       />
 

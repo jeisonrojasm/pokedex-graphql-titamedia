@@ -10,6 +10,7 @@ import { FilterByType } from '../molecules/FilterByType'
 import './PokemonList.css'
 
 import { validatePokemonName } from '../../utils/validations'
+import { Warn } from '../molecules/Warn'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
@@ -56,8 +57,8 @@ export const PokemonList = ({ onSelect }) => {
     })
   }, [pokemons, sort, search, searchError])
 
-  if (loading) return <Text as='p'>Cargando...</Text>
-  if (error) return <Text as='p'>Error al cargar Pokémon</Text>
+  if (loading) return <Warn text='Cargando Pokémones...' />
+  if (error) return <Warn text='Error al cargar los Pokémon.' />
 
   return (
     <div className="pokemon-list">
