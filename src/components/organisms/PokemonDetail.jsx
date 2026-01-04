@@ -47,7 +47,7 @@ export const PokemonDetail = () => {
       <PokemonDetailHeader
         name={data.name}
         id={data.id}
-        onBack={() => navigate('../../')}
+        onBack={() => navigate('../')}
       />
 
       <PokemonDetailImageNavigator

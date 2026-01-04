@@ -3,12 +3,14 @@ import { Button } from '../atoms/Button'
 import { Text } from '../atoms/Text'
 import { PokemonCard } from '../molecules/PokemonCard'
 
+import './FavoritesList.css'
+
 export const FavoritesList = () => {
   const { favorites, removeFavorite } = useFavorites()
 
   return (
     <div>
-      <Text as="h2">Favoritos</Text>
+      <Text className="favorites-list__title" as="h2">Favoritos</Text>
       {
         favorites.map((pokemon) => (
           <div key={pokemon.id}>

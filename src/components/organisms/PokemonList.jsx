@@ -11,9 +11,12 @@ import './PokemonList.css'
 
 import { validatePokemonName } from '../../utils/validations'
 import { Warn } from '../molecules/Warn'
+import { Button } from '../atoms/Button'
+import { useNavigate } from 'react-router-dom'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
+  const navigate = useNavigate()
 
   const [sort, setSort] = useState('name')
   const [search, setSearch] = useState('')
@@ -27,7 +30,6 @@ export const PokemonList = ({ onSelect }) => {
 
     return null
   }, [search, sort])
-
 
   const filteredAndSorted = useMemo(() => {
     if (!pokemons) return []
@@ -64,8 +66,13 @@ export const PokemonList = ({ onSelect }) => {
     <div className="pokemon-list">
       <div className="pokemon-list__header">
         <div className="pokemon-list__header-title">
-          <Image className="pokemon-list__header-title--img" src={icon_principal_pokeball} alt="Icono principal Pokeball" />
-          <Text as="h1" className="pokemon-list__title">Pokédex</Text>
+          <div className="pokemon-list__header-title-1">
+            <Image className="pokemon-list__header-title--img" src={icon_principal_pokeball} alt="Icono principal Pokeball" />
+            <Text as="h1" className="pokemon-list__title">Pokédex</Text>
+          </div>
+          <Button className="pokemon-list__header-favs" onClick={() => navigate('/favorites')}>
+            ⭐
+          </Button>
         </div>
         <div>
           <FilterByType

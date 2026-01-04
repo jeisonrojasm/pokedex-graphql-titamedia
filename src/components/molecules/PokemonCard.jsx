@@ -11,7 +11,7 @@ export const PokemonCard = ({ pokemon }) => {
     pokemon.pokemon_v2_pokemonsprites[0]?.sprites?.other?.home?.front_default
 
   const handleClick = () => {
-    navigate(`/pokemon/${pokemon.name}`)
+    navigate(`/${pokemon.name}`)
   }
 
   return (
