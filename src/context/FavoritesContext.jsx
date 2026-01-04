@@ -6,6 +6,7 @@ export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(true)
+  const [totalPokemons, setTotalPokemons] = useState(0)
 
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export const FavoritesProvider = ({ children }) => {
 
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite, loading, error }}
+      value={{ favorites, addFavorite, removeFavorite, loading, error, totalPokemons, setTotalPokemons }}
     >
       {children}
     </FavoritesContext.Provider>

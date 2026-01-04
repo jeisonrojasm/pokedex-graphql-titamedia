@@ -13,9 +13,18 @@ import { validatePokemonName } from '../../utils/validations'
 import { Warn } from '../molecules/Warn'
 import { Button } from '../atoms/Button'
 import { useNavigate } from 'react-router-dom'
+import { useFavorites } from '../../hooks/useFavorites'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
+  const { setTotalPokemons } = useFavorites()
+
+  useEffect(() => {
+    if (pokemons) {
+      setTotalPokemons(pokemons.length)
+    }
+  }, [pokemons])
+
   const navigate = useNavigate()
 
   const [sort, setSort] = useState('name')

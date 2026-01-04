@@ -22,7 +22,7 @@ export const PokemonDetail = () => {
   const navigate = useNavigate()
 
   const { pokemon, loading, error } = usePokemonDetail(name)
-  const { favorites, addFavorite, removeFavorite } = useFavorites()
+  const { favorites, addFavorite, removeFavorite, totalPokemons } = useFavorites()
 
   if (loading) return <Warn text='Cargando detalle...' />
   if (error) return <Warn text='Error al cargar detalle' />
@@ -40,7 +40,7 @@ export const PokemonDetail = () => {
     } else {
       addFavorite(pokemon)
     }
-  }  
+  }
 
   return (
     <div className="pokemon-detail" style={{ backgroundColor: data.color }}>
