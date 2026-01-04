@@ -1,0 +1,12 @@
+.progress-bar {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+}
+
+.progress-bar__value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.0rem;
+  color: var(--color-4);
+}

@@ -15,6 +15,12 @@
 
 .pokemon-list__header-title {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokemon-list__header-title-1 {
+  display: flex;
   align-items: center;
   gap: 1.6rem;
 }
@@ -31,10 +37,9 @@
 }
 
 .pokemon-list__cards {
-  /* flex: 1; */
   background-color: var(--color-2);
   border-radius: 0.8rem;
-  box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0,0,0,0.51) inset;
+  box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0, 0, 0, 0.51) inset;
   padding: 2.4rem 1.2rem 1.2rem 1.2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -42,6 +47,7 @@
   justify-items: center;
   max-height: 95%;
   overflow: auto;
+  min-height: 50vh;
 }
 
 .pokemon-list__error {
@@ -49,4 +55,11 @@
   font-weight: 400;
   font-size: 1.0rem;
   color: var(--color-2);
+}
+
+.pokemon-list__header-favs {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

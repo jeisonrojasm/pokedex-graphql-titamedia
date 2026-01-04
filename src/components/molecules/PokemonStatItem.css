@@ -1,0 +1,16 @@
+.pokemon-stat-item {
+  display: grid;
+  grid-template-columns: 11% 89%;
+  gap: 1rem;
+}
+
+.pokemon-stat-item__header {
+  border-right: 0.1rem solid var(--color-6);
+  padding: 0.3rem 0;
+}
+
+.pokemon-stat-item__header-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.0rem;
+}

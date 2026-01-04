@@ -13,10 +13,13 @@ import { PokemonStats } from '../molecules/PokemonStats'
 import icon_star_filled from '../../assets/icons/icon-star-filled.svg'
 import icon_star from '../../assets/icons/icon-star.svg'
 import { Warn } from '../molecules/Warn'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import './PokemonDetail.css'
 
 export const PokemonDetail = () => {
   const { name } = useParams()
+  const navigate = useNavigate()
 
   const { pokemon, loading, error } = usePokemonDetail(name)
   const { favorites, addFavorite, removeFavorite } = useFavorites()
@@ -37,14 +40,14 @@ export const PokemonDetail = () => {
     } else {
       addFavorite(pokemon)
     }
-  }
+  }  
 
   return (
-    <div style={{ backgroundColor: data.color }}>
+    <div className="pokemon-detail" style={{ backgroundColor: data.color }}>
       <PokemonDetailHeader
         name={data.name}
         id={data.id}
-        onBack={() => { }}
+        onBack={() => navigate('../')}
       />
 
       <PokemonDetailImageNavigator
@@ -54,20 +57,22 @@ export const PokemonDetail = () => {
         onNext={() => { }}
       />
 
-      <div style={{ backgroundColor: 'white' }}>
-        <Button onClick={handleToggleFavorite}>
+      <div className="pokemon-detail__info">
+        <Button className="pokemon-detail__fav-btn" onClick={handleToggleFavorite}>
           <Image
+            className="pokemon-detail__fav-btn-icon"
             src={isFavorite ? icon_star_filled : icon_star}
             alt="Favorite icon"
           />
         </Button>
-        <PokemonDetailTypes types={data.types} />
+        <PokemonDetailTypes className="pokemon-detail__types" style={{ backgroundColor: data.color }} types={data.types} />
 
         <PokemonAbout
           weight={data.weight}
           height={data.height}
           moves={data.moves}
           description={data.description}
+          color={data.color}
         />
 
         <PokemonStats stats={data.stats} color={data.color} />

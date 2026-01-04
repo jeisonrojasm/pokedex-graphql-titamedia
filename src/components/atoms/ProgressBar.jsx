@@ -1,16 +1,22 @@
+import { Text } from "./Text";
+import './ProgressBar.css'
+
 export const ProgressBar = ({ value, color }) => (
-  <div style={{
-    width: '100%',
-    height: '8px',
-    backgroundColor: '#E5E7EB',
-    borderRadius: '4px',
-    overflow: 'hidden',
-  }}>
+  <div className="progress-bar">
+    <Text className="progress-bar__value">{value}</Text>
     <div style={{
-      width: `${value}%`,
-      height: '100%',
-      backgroundColor: color,
-      transition: 'width 0.3s ease',
-    }} />
+      width: '100%',
+      height: '4px',
+      backgroundColor: '#E5E7EB',
+      borderRadius: '4px',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        width: `${value/2}%`,
+        height: '100%',
+        backgroundColor: color,
+        transition: 'width 0.3s ease',
+      }} />
+    </div>
   </div>
 )

@@ -1,0 +1,48 @@
+.pokemon-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-detail__info {
+  background-color: var(--color-2);
+  border-radius: 0.8rem;
+  padding: 5.6rem 2rem 2rem 2rem;
+  margin-top: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  z-index: 1;
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  right: 0.4rem;
+  height: 52%;
+}
+
+.pokemon-detail__fav-btn {
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pokemon-detail__fav-btn-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+}
+
+.pokemon-detail__types {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1.0rem;
+}
