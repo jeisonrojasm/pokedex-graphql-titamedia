@@ -15,6 +15,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .pokemon-detail-header__back-btn--image {

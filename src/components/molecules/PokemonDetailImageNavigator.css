@@ -1,0 +1,24 @@
+.pokemon-detail-image-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 2.0rem 1.6rem 2.0rem;
+}
+
+.pokemon-detail-image-navigator__btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pokemon-detail-image-navigator__arrow {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.pokemon-detail-image-navigator__image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+}

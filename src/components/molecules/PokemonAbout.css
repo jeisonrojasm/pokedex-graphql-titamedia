@@ -1,0 +1,64 @@
+.pokemon-about__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.pokemon-about__attributes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pokemon-about__attribute {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pokemon-about__attribute--moves {
+  justify-content: space-between;
+  padding: 0 0.8rem;
+}
+
+.pokemon-about__attribute--info {
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.pokemon-about__attribute--img {
+  width: 1.6rem;
+  height: 1.6rem;
+  object-fit: contain;
+}
+
+.pokemon-about__attribute--data {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-4);
+}
+
+.pokemon-about__data-title {
+  color: var(--color-3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.pokemon-about__attributes> :nth-child(1),
+.pokemon-about__attributes> :nth-child(2) {
+  border-right: 0.1rem solid var(--color-6);
+}
+
+.pokemon-about__description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-4);
+  line-height: 1.6rem;
+}

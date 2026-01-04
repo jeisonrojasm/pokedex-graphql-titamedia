@@ -40,7 +40,7 @@ export const PokemonDetail = () => {
     } else {
       addFavorite(pokemon)
     }
-  }
+  }  
 
   return (
     <div className="pokemon-detail" style={{ backgroundColor: data.color }}>
@@ -57,20 +57,22 @@ export const PokemonDetail = () => {
         onNext={() => { }}
       />
 
-      <div style={{ backgroundColor: 'white' }}>
-        <Button onClick={handleToggleFavorite}>
+      <div className="pokemon-detail__info">
+        <Button className="pokemon-detail__fav-btn" onClick={handleToggleFavorite}>
           <Image
+            className="pokemon-detail__fav-btn-icon"
             src={isFavorite ? icon_star_filled : icon_star}
             alt="Favorite icon"
           />
         </Button>
-        <PokemonDetailTypes types={data.types} />
+        <PokemonDetailTypes className="pokemon-detail__types" style={{ backgroundColor: data.color }} types={data.types} />
 
         <PokemonAbout
           weight={data.weight}
           height={data.height}
           moves={data.moves}
           description={data.description}
+          color={data.color}
         />
 
         <PokemonStats stats={data.stats} color={data.color} />

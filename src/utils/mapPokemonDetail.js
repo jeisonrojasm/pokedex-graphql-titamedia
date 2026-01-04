@@ -6,13 +6,22 @@ export const mapPokemonDetail = (pokemon) => {
     t => t.pokemon_v2_type.name
   )
 
-  const stats = pokemon.pokemon_v2_pokemonstats.reduce(
-    (acc, stat) => {
-      acc[stat.pokemon_v2_stat.name] = stat.base_stat
-      return acc
-    },
-    {}
-  )
+  const STAT_NAME_MAP = {
+    hp: 'HP',
+    attack: 'ATK',
+    defense: 'DEF',
+    'special-attack': 'SATK',
+    'special-defense': 'SDEF',
+    speed: 'SPD',
+  }
+
+  const stats = pokemon.pokemon_v2_pokemonstats.reduce((acc, stat) => {
+    const originalName = stat.pokemon_v2_stat.name
+    const mappedName = STAT_NAME_MAP[originalName] || originalName
+
+    acc[mappedName] = stat.base_stat
+    return acc
+  }, {})
 
   const colorName =
     pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name
@@ -20,7 +29,7 @@ export const mapPokemonDetail = (pokemon) => {
   return {
     id: pokemon.id,
     name: pokemon.name,
-    image: sprite.front_default,
+    image: sprite?.other?.home?.front_default,
     types,
     height: pokemon.height / 10,
     weight: pokemon.weight / 10,
@@ -31,6 +40,6 @@ export const mapPokemonDetail = (pokemon) => {
       pokemon.pokemon_v2_pokemonspecy
         .pokemon_v2_pokemonspeciesflavortexts[0]?.flavor_text,
     stats,
-    color: POKEMON_COLOR_MAP[colorName] ?? '#E5E7EB',
+    color: POKEMON_COLOR_MAP[colorName] ?? '#e0e0e0ff',
   }
 }

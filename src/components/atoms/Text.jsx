@@ -1,4 +1,4 @@
-export const Text = ({ children, as = 'span', className = ''}) => {
+export const Text = ({ children, as = 'span', className = '', style = {}}) => {
   const Component = as
-  return <Component className={className}>{children}</Component>
+  return <Component className={className} style={style}>{children}</Component>
 }
