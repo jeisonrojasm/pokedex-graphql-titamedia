@@ -17,20 +17,14 @@ export const PokemonList = ({ onSelect }) => {
   const [sort, setSort] = useState('name')
   const [search, setSearch] = useState('')
 
-  const [searchError, setSearchError] = useState(null)
-
-  useEffect(() => {
-    if (!search) {
-      setSearchError(null)
-      return
-    }
+  const searchError = useMemo(() => {
+    if (!search) return null
 
     if (sort === 'name') {
-      const error = validatePokemonName(search)
-      setSearchError(error)
-    } else {
-      setSearchError(null)
+      return validatePokemonName(search)
     }
+
+    return null
   }, [search, sort])
 
 
