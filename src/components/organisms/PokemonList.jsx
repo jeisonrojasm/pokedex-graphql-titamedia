@@ -5,8 +5,9 @@ import { Text } from '../atoms/Text'
 import { Image } from '../atoms/Image'
 
 import icon_principal_pokeball from '../../assets/icons/icon-principal-pokeball.svg'
-import { Input } from '../atoms/Input'
 import { FilterByType } from '../molecules/FilterByType'
+
+import './PokemonList.css'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
@@ -45,11 +46,11 @@ export const PokemonList = ({ onSelect }) => {
   if (error) return <Text as='p'>Error al cargar Pokémon</Text>
 
   return (
-    <div>
-      <div>
-        <div>
-          <Image src={icon_principal_pokeball} alt="Icono principal Pokeball" />
-          <Text as="h1">Pokédex</Text>
+    <div className="pokemon-list">
+      <div className="pokemon-list__header">
+        <div className="pokemon-list__header-title">
+          <Image className="pokemon-list__header-title--img" src={icon_principal_pokeball} alt="Icono principal Pokeball" />
+          <Text as="h1" className="pokemon-list__title">Pokédex</Text>
         </div>
         <div>
           <FilterByType
@@ -60,15 +61,17 @@ export const PokemonList = ({ onSelect }) => {
           />
         </div>
       </div>
-      {
-        filteredAndSorted.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            onSelect={onSelect}
-          />
-        ))
-      }
+      <div className="pokemon-list__cards">
+        {
+          filteredAndSorted.map((pokemon) => (
+            <PokemonCard
+              key={pokemon.id}
+              pokemon={pokemon}
+              onSelect={onSelect}
+            />
+          ))
+        }
+      </div>
     </div>
   )
 }

@@ -1,4 +1,47 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+:root {
+  --color-1: #DC0A2D;
+  --color-2: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Document
    ========================================================================== */
@@ -11,6 +54,10 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-2);
 }
 
 /* Sections
@@ -22,6 +69,15 @@ html {
 
 body {
   margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /**
@@ -39,7 +95,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Grouping content

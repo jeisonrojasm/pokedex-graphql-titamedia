@@ -1,0 +1,24 @@
+.input {
+  background-color: var(--color-2);
+  flex: 1;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 1.6rem;
+  padding: 0.85rem 1.6rem 0.8rem 1.2rem;
+  box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0,0,0,0.51) inset;
+}
+
+.input__img {
+  width: 1.18rem;
+  height: 1.178rem;
+}
+
+.input__input-element {
+  border: none;
+  outline: none;
+  margin: 0.1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0rem;
+  flex: 1;
+}

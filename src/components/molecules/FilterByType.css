@@ -1,0 +1,26 @@
+.filter-by-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.filter-by-type__button {
+  background-color: var(--color-2);
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 1.6rem;
+  box-shadow: -0.1rem 0rem 0.4rem 0.05rem rgba(0,0,0,0.51) inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-by-type__button--img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.filter-by-type__pop-up {
+  display: none;
+}
