@@ -1,8 +1,8 @@
+import icon_back_arrow from '../../assets/icons/icon-back-arrow.svg'
 import { capitalize } from '../../utils/capitalize'
 import { Button } from '../atoms/Button'
 import { Image } from '../atoms/Image'
 import { Text } from '../atoms/Text'
-import icon_back_arrow from '../../assets/icons/icon-back-arrow.svg'
 
 import './PokemonDetailHeader.css'
 

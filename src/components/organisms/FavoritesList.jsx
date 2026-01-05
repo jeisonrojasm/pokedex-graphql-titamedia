@@ -1,13 +1,13 @@
+import icon_back_arrow from '../../assets/icons/icon-back-arrow.svg'
 import { useFavorites } from '../../hooks/useFavorites'
 import { Button } from '../atoms/Button'
 import { Image } from '../atoms/Image'
 import { Text } from '../atoms/Text'
 import { PokemonCard } from '../molecules/PokemonCard'
-import icon_back_arrow from '../../assets/icons/icon-back-arrow.svg'
 
-import './FavoritesList.css'
 import { useNavigate } from 'react-router-dom'
 import { Warn } from '../molecules/Warn'
+import './FavoritesList.css'
 
 export const FavoritesList = () => {
   const { favorites, removeFavorite } = useFavorites()

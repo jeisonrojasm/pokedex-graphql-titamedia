@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { usePokemons } from '../../hooks/usePokemons'
 import { Image } from '../atoms/Image'
 import { Text } from '../atoms/Text'
 import { PokemonCard } from '../molecules/PokemonCard'
 
 import icon_principal_pokeball from '../../assets/icons/icon-principal-pokeball.svg'
-import { FilterByType } from '../molecules/FilterByType'
+import { Sorting } from '../molecules/Sorting'
 
 import './PokemonList.css'
 
@@ -16,6 +16,7 @@ import { Warn } from '../molecules/Warn'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
+  const [filter, setFilter] = useState("")
 
   const navigate = useNavigate()
 
@@ -35,9 +36,22 @@ export const PokemonList = ({ onSelect }) => {
   const filteredAndSorted = useMemo(() => {
     if (!pokemons) return []
 
-    if (searchError) return pokemons
+    // 1. Filtrado por tipo
+    const byType = filter
+      ? pokemons.filter((p) => {
+        console.log(p)
+        return p.pokemon_v2_pokemontypes.some(
+          (t) => t.pokemon_v2_type.name === filter
+        )
+      }
+      )
+      : pokemons
 
-    const filtered = pokemons.filter(pokemon => {
+    // Si hay error de búsqueda, no aplicamos búsqueda ni orden
+    if (searchError) return byType
+
+    // 2. Filtrado por búsqueda
+    const bySearch = byType.filter(pokemon => {
       if (!search) return true
 
       if (sort === 'name') {
@@ -53,12 +67,13 @@ export const PokemonList = ({ onSelect }) => {
       return true
     })
 
-    return [...filtered].sort((a, b) => {
+    // 3. Ordenamiento
+    return [...bySearch].sort((a, b) => {
       if (sort === 'id') return a.id - b.id
       if (sort === 'name') return a.name.localeCompare(b.name)
       return 0
     })
-  }, [pokemons, sort, search, searchError])
+  }, [pokemons, filter, sort, search, searchError])
 
   if (loading) return <Warn text='Cargando Pokémones...' />
   if (error) return <Warn text='Error al cargar los Pokémon.' />
@@ -76,11 +91,13 @@ export const PokemonList = ({ onSelect }) => {
           </Button>
         </div>
         <div>
-          <FilterByType
+          <Sorting
             value={sort}
             search={search}
             onChange={setSort}
             onSearchChange={setSearch}
+            filter={filter}
+            setFilter={setFilter}
           />
           {searchError && (
             <Text as="p" className="pokemon-list__error">

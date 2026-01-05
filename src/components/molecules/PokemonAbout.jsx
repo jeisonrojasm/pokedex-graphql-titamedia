@@ -1,7 +1,7 @@
+import icon_height from '../../assets/icons/icon-height.svg'
+import icon_weight from '../../assets/icons/icon-weight.svg'
 import { Image } from '../atoms/Image'
 import { Text } from '../atoms/Text'
-import icon_weight from '../../assets/icons/icon-weight.svg'
-import icon_height from '../../assets/icons/icon-height.svg'
 
 import './PokemonAbout.css'
 
@@ -26,7 +26,7 @@ export const PokemonAbout = ({
 
       <div className="pokemon-about__attribute">
         <div className="pokemon-about__attribute--info">
-          <Image  className="pokemon-about__attribute--img" src={icon_height} alt="Height icon" />
+          <Image className="pokemon-about__attribute--img" src={icon_height} alt="Height icon" />
           <Text className="pokemon-about__attribute--data">{height} m</Text>
         </div>
         <Text className="pokemon-about__data-title">Height</Text>

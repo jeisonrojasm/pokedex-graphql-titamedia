@@ -10,13 +10,13 @@ import { PokemonDetailImageNavigator } from '../molecules/PokemonDetailImageNavi
 import { PokemonDetailTypes } from '../molecules/PokemonDetailTypes'
 import { PokemonStats } from '../molecules/PokemonStats'
 
+import { useNavigate, useParams } from 'react-router-dom'
 import icon_star_filled from '../../assets/icons/icon-star-filled.svg'
 import icon_star from '../../assets/icons/icon-star.svg'
 import { Warn } from '../molecules/Warn'
-import { useNavigate, useParams } from 'react-router-dom'
 
-import './PokemonDetail.css'
 import { useEffect, useState } from 'react'
+import './PokemonDetail.css'
 
 export const PokemonDetail = () => {
   const { name } = useParams()
