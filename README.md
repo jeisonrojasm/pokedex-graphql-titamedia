@@ -47,6 +47,12 @@ git clone https://github.com/jeisonrojasm/pokedex-graphql-titamedia.git
 cd pokedex-graphql-titamedia
 ```
 
+## 🎨 Consideraciones de diseño y responsive
+
+El diseño de la aplicación fue implementado siguiendo un enfoque **mobile-first**, basado exclusivamente en los mockups proporcionados en Figma, los cuales estaban definidos únicamente para dispositivos móviles.
+
+No se entregaron diseños específicos para tablet o escritorio, por lo que no se desarrollaron layouts adicionales para dichos breakpoints, con el objetivo de respetar fielmente el alcance del diseño suministrado en la prueba técnica.
+
 ## 🌐 Visualización de la aplicación en Netlify
 
 La aplicación se encuentra desplegada en **producción** y puede visualizarse a través del siguiente enlace:
