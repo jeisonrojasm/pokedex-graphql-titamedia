@@ -22,7 +22,7 @@ export const FavoritesList = () => {
         <Text className="favorites-list__title" as="h2">Favoritos</Text>
       </div>
       {favorites.length === 0 ? (
-        <Warn text="No hay pokemones en la lista de favoritos" />
+        <Warn text="No hay pokemones en la lista de favoritos. Ve al detalle de un Pokémon y añádelo como favorito por medio del ícono de la estrella." />
       ) : (
         <div className="pokemon-list__cards">
           {favorites.map((pokemon) => (
