@@ -1,21 +1,22 @@
 import { useEffect, useMemo, useState } from 'react'
 import { usePokemons } from '../../hooks/usePokemons'
-import { PokemonCard } from '../molecules/PokemonCard'
-import { Text } from '../atoms/Text'
 import { Image } from '../atoms/Image'
+import { Text } from '../atoms/Text'
+import { PokemonCard } from '../molecules/PokemonCard'
 
 import icon_principal_pokeball from '../../assets/icons/icon-principal-pokeball.svg'
 import { FilterByType } from '../molecules/FilterByType'
 
 import './PokemonList.css'
 
-import { validatePokemonName } from '../../utils/validations'
-import { Warn } from '../molecules/Warn'
-import { Button } from '../atoms/Button'
 import { useNavigate } from 'react-router-dom'
+import { validatePokemonName } from '../../utils/validations'
+import { Button } from '../atoms/Button'
+import { Warn } from '../molecules/Warn'
 
 export const PokemonList = ({ onSelect }) => {
   const { pokemons, loading, error } = usePokemons()
+
   const navigate = useNavigate()
 
   const [sort, setSort] = useState('name')
