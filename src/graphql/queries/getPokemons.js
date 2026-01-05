@@ -8,6 +8,11 @@ export const GET_POKEMONS = gql`
       pokemon_v2_pokemonsprites(limit: 1) {
         sprites
       }
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
+          name
+        }
+      }
     }
   }
 `
