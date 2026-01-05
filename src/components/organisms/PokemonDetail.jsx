@@ -16,6 +16,7 @@ import { Warn } from '../molecules/Warn'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import './PokemonDetail.css'
+import { useEffect, useState } from 'react'
 
 export const PokemonDetail = () => {
   const { name } = useParams()
@@ -23,6 +24,32 @@ export const PokemonDetail = () => {
 
   const { pokemon, loading, error } = usePokemonDetail(name)
   const { favorites, addFavorite, removeFavorite, totalPokemons } = useFavorites()
+
+  const [ids, setIds] = useState({
+    prevId: null,
+    nextId: null,
+  })
+
+  useEffect(() => {
+    if (!pokemon || totalPokemons.length === 0) return
+
+    const currentIndex = totalPokemons.findIndex(p => p.id === pokemon.id)
+
+    const prevId =
+      currentIndex === 0
+        ? totalPokemons[totalPokemons.length - 1]
+        : totalPokemons[currentIndex - 1]
+
+    const nextId =
+      currentIndex === totalPokemons.length - 1
+        ? totalPokemons[0]
+        : totalPokemons[currentIndex + 1]
+
+    setIds({
+      prevId,
+      nextId
+    })
+  }, [pokemon])
 
   if (loading) return <Warn text='Cargando detalle...' />
   if (error) return <Warn text='Error al cargar detalle' />
@@ -53,8 +80,8 @@ export const PokemonDetail = () => {
       <PokemonDetailImageNavigator
         image={data.image}
         name={data.name}
-        onPrev={() => { }}
-        onNext={() => { }}
+        onPrev={() => navigate(`/${ids.prevId.name}`)}
+        onNext={() => navigate(`/${ids.nextId.name}`)}
       />
 
       <div className="pokemon-detail__info">
