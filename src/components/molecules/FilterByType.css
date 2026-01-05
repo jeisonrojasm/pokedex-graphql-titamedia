@@ -1,0 +1,7 @@
+.filter-by-type {
+  outline: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0rem;
+  border-radius: 0.8rem;
+}

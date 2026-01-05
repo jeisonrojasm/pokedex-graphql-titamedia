@@ -1,0 +1,12 @@
+.pokemon-stats__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.pokemon-stats__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
