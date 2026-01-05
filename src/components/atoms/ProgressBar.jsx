@@ -1,5 +1,5 @@
+import './ProgressBar.css';
 import { Text } from "./Text";
-import './ProgressBar.css'
 
 export const ProgressBar = ({ value, color }) => (
   <div className="progress-bar">
@@ -12,7 +12,7 @@ export const ProgressBar = ({ value, color }) => (
       overflow: 'hidden',
     }}>
       <div style={{
-        width: `${value/2}%`,
+        width: `${value / 2}%`,
         height: '100%',
         backgroundColor: color,
         transition: 'width 0.3s ease',

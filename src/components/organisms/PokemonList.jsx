@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { usePokemons } from '../../hooks/usePokemons'
 import { Image } from '../atoms/Image'
 import { Text } from '../atoms/Text'

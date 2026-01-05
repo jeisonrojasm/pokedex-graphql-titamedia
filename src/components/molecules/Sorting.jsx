@@ -6,8 +6,8 @@ import { Text } from '../atoms/Text'
 import icon_sort from '../../assets/icons/icon-sort.svg'
 import icon_tag from '../../assets/icons/icon-tag.svg'
 
-import './Sorting.css'
 import { FilterByType } from './FilterByType'
+import './Sorting.css'
 
 export const Sorting = ({
   value,

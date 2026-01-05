@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client/react'
 import { GET_TYPES } from '../../graphql/queries/getTypes'
 
-import './FilterByType.css'
 import { capitalize } from '../../utils/capitalize'
+import './FilterByType.css'
 
 export const FilterByType = ({ filter, onChange }) => {
   const { data } = useQuery(GET_TYPES)

@@ -1,6 +1,6 @@
-import { Image } from './Image'
-import icon_search from '../../assets/icons/icon-search.svg'
 import icon_close from '../../assets/icons/icon-close.svg'
+import icon_search from '../../assets/icons/icon-search.svg'
+import { Image } from './Image'
 
 import './Input.css'
 

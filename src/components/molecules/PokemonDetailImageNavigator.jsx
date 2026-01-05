@@ -1,7 +1,7 @@
-import { Button } from '../atoms/Button'
-import { Image } from '../atoms/Image'
 import icon_left_arrow from '../../assets/icons/icon-left-arrow.svg'
 import icon_right_arrow from '../../assets/icons/icon-right-arrow.svg'
+import { Button } from '../atoms/Button'
+import { Image } from '../atoms/Image'
 
 import './PokemonDetailImageNavigator.css'
 
